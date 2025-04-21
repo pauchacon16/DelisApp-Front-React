@@ -37,7 +37,7 @@ export function useAuthFetch () {
       if (redirectRoute) router.push(redirectRoute)
     } catch (error: any) {
       showNotification({
-        msj: error.response.data.error as string,
+        msj: endpoint == 'register' ? error.response.data.error : error.response.data.message as string,
         open: true,
         status: 'error'
       })
